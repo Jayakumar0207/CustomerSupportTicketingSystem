@@ -5,10 +5,10 @@ namespace TicketService.Application.Services.Abstraction
 {
     public interface ITicketAppService
     {
-        IEnumerable<TicketDTOs> GetAll();
-        TicketDTOs GetById(int id);
+        IEnumerable<TicketDTOs> GetTicketsByUserId(Guid userid);
+        TicketDTOs GetTicketDetailById(int id);
         void Add(TicketDTOs ticketDTOs);
-        bool Update(int id, TicketDTOs ticketDTOs);
+        bool Update(TicketDTOs ticketDTOs);
         bool Delete(int id);
     }
 }

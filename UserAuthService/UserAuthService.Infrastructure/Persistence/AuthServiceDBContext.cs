@@ -17,10 +17,15 @@ public partial class AuthServiceDBContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<User>()
-                .Property(u => u.UserId)
-                .HasDefaultValueSql("NEWID()");
-    }
+    //protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //{
+    //    modelBuilder.Entity<User>()
+    //            .Property(u => u.UserId)
+    //            .HasDefaultValueSql("NEWID()");
+
+    //    modelBuilder.Entity<User>().Property(p => p.CreatedAt)
+    //            .HasDefaultValueSql("GETDATE()")
+    //            .ValueGeneratedOnAdd();
+
+    //}
 }

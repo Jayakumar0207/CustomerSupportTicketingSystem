@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TicketService.Infrastructure;
 
@@ -11,9 +12,11 @@ using TicketService.Infrastructure;
 namespace TicketService.API.Migrations
 {
     [DbContext(typeof(TicketServiceDBContext))]
-    partial class TicketServiceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250818134822_intial11")]
+    partial class intial11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

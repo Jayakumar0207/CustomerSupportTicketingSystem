@@ -24,12 +24,14 @@ namespace TicketService.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<Ticket> GetAll()
+        public IEnumerable<Ticket> GetTicketsByUserId(Guid userid)
         {
-            return _dbcontext.Tickets.ToList();
+            return _dbcontext.Tickets
+                .Where(t => t.UserId == userid)
+                .ToList();
         }
 
-        public Ticket GetById(int id)
+        public Ticket GetTicketDetailById(int id)
         {
             return _dbcontext.Tickets.Find(id)!;
         }

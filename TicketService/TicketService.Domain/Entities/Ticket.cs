@@ -11,24 +11,16 @@ namespace TicketService.Domain.Entities
         [Required]
         public Guid UserId { get; set; }
         [Required]
-        [StringLength(100)]
-        public string Title { get; set; }
+        [StringLength(50)]
+        public required string Title { get; set; }
         [Required]
-        [StringLength(1000)]
-        public string Description { get; set; }
-        public TicketStatus Status { get; set; } // Open, In Progress, Resolved
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-
-        //Navigation property for related comments
-        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
-
-    }
-    public enum TicketStatus
-    {
-        Open = 0,
-        InProgress = 1,
-        Closed = 2,
-        Cancelled = 3
+        [StringLength(500)]
+        public required string Description { get; set; }
+        [Required]
+        public required string Priority { get; set; }
+        public required string Status { get; set; } // Open, In Progress, Resolved
+        public string Comments { get; set; } = string.Empty;
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }  
     }
 }

@@ -3,10 +3,15 @@
 namespace TicketService.Application.DTOs
 {
     public class TicketDTOs
-    {        
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public TicketStatus Status { get; set; }
-        public List<CommentDTOs>? Comments { get; set; }
+    {
+        public required Guid UserId { get; set; }
+        public int TicketID { get; set; }
+        public required string Title { get; set; }
+        public required string Description { get; set; }
+        public required string Priority { get; set; }
+        public required string Status { get; set; }
+        public string Comments { get; set; } = string.Empty;
+        public DateTime Created { get; set; }
+        
     }
 }

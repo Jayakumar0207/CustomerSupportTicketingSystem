@@ -13,8 +13,8 @@ namespace TicketServices.API.Mapper
                 .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
                 .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore());
 
-            CreateMap<Ticket, TicketDTOs>().ReverseMap();
-            CreateMap<Comment, CommentDTOs>().ReverseMap();
+            CreateMap<Ticket, TicketDTOs>()
+                .ForMember(dest => dest.Created, opt => opt.MapFrom(src => src.CreatedAt));            
         }        
     }
 }

@@ -20,7 +20,7 @@ namespace AuthService.Infrastructure
                 options.UseSqlServer(configuration.GetConnectionString("UserDBContext"),
                 sqlServerOptionsAction: sqlOptions =>
                 {
-                    sqlOptions.MigrationsAssembly("AuthService.API");
+                    sqlOptions.MigrationsAssembly("UserAuthService.API");
                 }
                 ));
             //Repositories

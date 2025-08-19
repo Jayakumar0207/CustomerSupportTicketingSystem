@@ -65,7 +65,7 @@ namespace UserAuthService.Application.Services.Implementations
                     return userDTO;
                 }
             }
-            return null;
+            return null!;
         }
 
         public bool SignUpUser(SignUpDTO signUpDTO)

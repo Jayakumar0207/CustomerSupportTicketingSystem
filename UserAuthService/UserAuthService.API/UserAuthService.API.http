@@ -1,0 +1,9 @@
+@AuthService.API_HostAddress = https://localhost:7190/api
+
+POST {{AuthService.API_HostAddress}}/UserAuthService/SignUp
+Accept: application/json
+Content-Type: application/json
+{name: 'dsd', email: 'dasd@gmail.com', password: '1234567', confirmPassword: '1234567'}
+
+
+###

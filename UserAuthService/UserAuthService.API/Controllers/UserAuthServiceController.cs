@@ -33,7 +33,7 @@ namespace AuthService.API.Controllers
         [HttpPost]
         public IActionResult SignUp([FromBody] SignUpDTO userDTO)
         {
-            if (userDTO == null || string.IsNullOrEmpty(userDTO.Email) || string.IsNullOrEmpty(userDTO.Password))
+            if (userDTO == null || string.IsNullOrEmpty(userDTO.Name) || string.IsNullOrEmpty(userDTO.Email) || string.IsNullOrEmpty(userDTO.Password))
             {
                 return BadRequest("Invalid registration request.");
             }

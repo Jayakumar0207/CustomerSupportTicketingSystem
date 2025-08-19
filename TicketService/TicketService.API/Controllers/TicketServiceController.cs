@@ -7,7 +7,7 @@ using TicketService.Domain.Entities;
 
 namespace TicketServices.API.Controllers
 {
-    [Route("api/ticket")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class TicketServiceController : ControllerBase
     {
@@ -19,37 +19,31 @@ namespace TicketServices.API.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetTicketsByUserId(Guid userid)
         {
-            var tickets = _ticketAppService.GetAll();
+            var tickets = _ticketAppService.GetTicketsByUserId(userid);
             return Ok(tickets);
         }
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        [HttpGet]
+        public IActionResult GetTicketDetailById(int id)
         {
-            var ticket = _ticketAppService.GetById(id);
-            if (ticket == null)
-            {
-                return NotFound();
-            }
+            var ticket = _ticketAppService.GetTicketDetailById(id);            
             return Ok(ticket);
         }
         [HttpPost]
-        public void Add(TicketDTOs ticketDTOs)
+        public void CreateTicket(TicketDTOs ticketDTOs)
         {
             _ticketAppService.Add(ticketDTOs);
         }
         [HttpDelete]
-        public bool Delete(int ticketID)
+        public bool DeleteTicket(int ticketID)
         {
-            _ticketAppService.Delete(ticketID);
-            return true;
+            return _ticketAppService.Delete(ticketID);            
         }
-        [HttpPut("{id}")]
-        public bool Update(int id, [FromBody] TicketDTOs ticketDTOs)
+        [HttpPut]
+        public bool UpdateTicket([FromBody] TicketDTOs ticketDTOs)
         {
-            _ticketAppService.Update(id, ticketDTOs); 
-            return true;
+            return _ticketAppService.Update(ticketDTOs);             
         }
     }
 }
